@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "runtime": "python3.11",
+  "functions": {
+    "api/webhook.py": {
+      "runtime": "python3.11",
+      "memory": 512,
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/webhook",
+      "dest": "/api/webhook.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/webhook.py"
+    }
+  ],
+  "env": {
+    "TELEGRAM_BOT_TOKEN": "@TELEGRAM_BOT_TOKEN",
+    "BUILT_IN_FORGE_API_URL": "@BUILT_IN_FORGE_API_URL",
+    "BUILT_IN_FORGE_API_KEY": "@BUILT_IN_FORGE_API_KEY"
+  }
+}
